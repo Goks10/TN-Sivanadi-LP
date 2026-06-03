@@ -1202,11 +1202,12 @@ footer {
     margin: 0 auto;
   }
   .visitor-card {
-    max-width: 280px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
   }
   .visitors-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1231,7 +1232,20 @@ footer {
     font-size: 0.8rem;
   }
   .visitors-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .visitor-image-frame {
+    aspect-ratio: 3/4;
+  }
+  .visitor-info {
+    padding: 10px 8px;
+  }
+  .visitor-name {
+    font-size: 0.85rem;
+  }
+  .visitor-title {
+    font-size: 0.72rem;
   }
   .hero-title {
     font-size: 1.85rem;
