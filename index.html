@@ -21,7 +21,8 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1717709839407606');
-    fbq('track', 'PageView');
+    window._pvId = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : ('ev-' + Math.random().toString(36).slice(2) + '-' + Date.now());
+    fbq('track', 'PageView', {}, { eventID: window._pvId });
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1717709839407606&ev=PageView&noscript=1"
@@ -1298,13 +1299,17 @@
 
   <!-- JavaScript Interaction Script -->
   <script src="app.js"></script>
+  <script src="capi-client.js"></script>
+  <script>sendCapiEvent('PageView', window._pvId);</script>
 
-  <!-- Meta Pixel: InitiateCheckout on any booking CTA click -->
+  <!-- Meta Pixel + CAPI: InitiateCheckout on any booking CTA click -->
   <script>
     document.addEventListener('click', function(e) {
       var btn = e.target.closest('.open-booking-btn');
       if (btn) {
-        fbq('track', 'InitiateCheckout');
+        var _icId = genEventId();
+        fbq('track', 'InitiateCheckout', {}, { eventID: _icId });
+        sendCapiEvent('InitiateCheckout', _icId);
       }
     });
   </script>

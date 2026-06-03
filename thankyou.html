@@ -23,8 +23,10 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1717709839407606');
-    fbq('track', 'PageView');
-    fbq('track', 'Lead');
+    window._pvId   = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : ('ev-' + Math.random().toString(36).slice(2) + '-' + Date.now());
+    window._leadId = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : ('ev-' + Math.random().toString(36).slice(2) + '-' + Date.now());
+    fbq('track', 'PageView', {}, { eventID: window._pvId });
+    fbq('track', 'Lead',     {}, { eventID: window._leadId });
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1717709839407606&ev=PageView&noscript=1"
@@ -276,6 +278,12 @@
       </p>
     </div>
   </main>
+
+  <script src="capi-client.js"></script>
+  <script>
+    sendCapiEvent('PageView', window._pvId);
+    sendCapiEvent('Lead', window._leadId);
+  </script>
 
   <script>
     // Extract metadata from localStorage

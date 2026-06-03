@@ -23,7 +23,8 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1717709839407606');
-    fbq('track', 'PageView');
+    window._pvId = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : ('ev-' + Math.random().toString(36).slice(2) + '-' + Date.now());
+    fbq('track', 'PageView', {}, { eventID: window._pvId });
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1717709839407606&ev=PageView&noscript=1"
@@ -291,6 +292,9 @@
     </div>
   </main>
 
+  <script src="capi-client.js"></script>
+  <script>sendCapiEvent('PageView', window._pvId);</script>
+
   <script>
     var _addToCartFired = false;
 
@@ -343,7 +347,9 @@
 
       if (!_addToCartFired) {
         _addToCartFired = true;
-        fbq('track', 'AddToCart');
+        var _acId = genEventId();
+        fbq('track', 'AddToCart', {}, { eventID: _acId });
+        sendCapiEvent('AddToCart', _acId);
       }
 
       const bookingData = {
