@@ -329,28 +329,32 @@
       updateGenderHighlight();
     });
 
-    // Form redirection hook
+    // ⬇ Paste your Google Apps Script Web App URL here
+    const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwcmTpfxU5fNQxpTcZR7TpZVLuqdhP8l7hawRc0bEUSYdu8M48G54KXaNsOiF-G854/exec';
+
     document.getElementById('multiPageBookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      const clientName = document.getElementById('clientName').value;
-      const clientLanguage = document.getElementById('clientLanguage').value;
-      const clientGender = document.querySelector('input[name="clientGender"]:checked').value;
-      const clientDate = document.getElementById('clientDate').value;
-      const clientMessage = document.getElementById('clientMessage').value;
-      
-      // Save data securely in localStorage to carry it over to thankyou.html
+
       const bookingData = {
-        name: clientName,
-        language: clientLanguage,
-        gender: clientGender,
-        date: clientDate,
-        message: clientMessage
+        name:     document.getElementById('clientName').value,
+        language: document.getElementById('clientLanguage').value,
+        gender:   document.querySelector('input[name="clientGender"]:checked').value,
+        date:     document.getElementById('clientDate').value,
+        message:  document.getElementById('clientMessage').value
       };
-      
+
       localStorage.setItem('nadiBookingData', JSON.stringify(bookingData));
-      
-      // Redirect to thankyou.html
+
+      // Send to Google Sheet
+      if (SHEET_WEBHOOK_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+        fetch(SHEET_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(bookingData)
+        }).catch(function(err) { console.error('Sheet error:', err); });
+      }
+
       window.location.href = 'thankyou.html';
     });
   </script>
