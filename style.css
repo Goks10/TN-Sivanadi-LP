@@ -1792,6 +1792,74 @@ body > * {
   .olai-deco img      { opacity: 0.3; }
 }
 
+/* --- KANDAMS GRID --- */
+.kandams-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.kandam-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(184, 134, 11, 0.2);
+  border-radius: 12px;
+  padding: 18px 16px;
+  box-shadow: 0 4px 12px rgba(61, 28, 2, 0.06);
+  transition: var(--transition-smooth);
+}
+
+.kandam-card:hover {
+  border-color: var(--color-copper);
+  box-shadow: 0 6px 20px rgba(244, 131, 31, 0.15);
+  transform: translateY(-2px);
+}
+
+.kandam-check {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  background: var(--color-copper);
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.kandam-card h5 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-burgundy);
+  margin-bottom: 6px;
+}
+
+.kandam-card p {
+  font-size: 0.85rem;
+  color: #5A3010;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.kandam-highlight {
+  color: var(--color-copper);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .kandams-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
 /* --- YOUTUBE FACADE (lazy load) --- */
 .yt-facade {
   position: absolute;
