@@ -1299,6 +1299,16 @@
   <!-- JavaScript Interaction Script -->
   <script src="app.js"></script>
 
+  <!-- Meta Pixel: InitiateCheckout on any booking CTA click -->
+  <script>
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.open-booking-btn');
+      if (btn) {
+        fbq('track', 'InitiateCheckout');
+      }
+    });
+  </script>
+
   <!-- Gallery Lightbox Script -->
   <script>
     function openLightbox(el) {

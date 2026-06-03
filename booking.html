@@ -24,7 +24,6 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1717709839407606');
     fbq('track', 'PageView');
-    fbq('track', 'InitiateCheckout');
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1717709839407606&ev=PageView&noscript=1"
@@ -293,6 +292,8 @@
   </main>
 
   <script>
+    var _addToCartFired = false;
+
     // Local interactive layout helpers (gender highlights and thumbprint box toggle)
     const maleCard = document.getElementById('genderMaleCard');
     const femaleCard = document.getElementById('genderFemaleCard');
@@ -339,6 +340,11 @@
 
     document.getElementById('multiPageBookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
+
+      if (!_addToCartFired) {
+        _addToCartFired = true;
+        fbq('track', 'AddToCart');
+      }
 
       const bookingData = {
         name:     document.getElementById('clientName').value,
