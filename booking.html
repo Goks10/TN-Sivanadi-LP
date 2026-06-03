@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Your Nadi Session | Sri Agasthya Siva Nadi</title>
+  
+  <!-- SEO & Favicon -->
+  <meta name="description" content="Request your authentic Nadi Astrology palm leaf matching and reading session. Serving seekers in 16 countries under the 250+ year Vaitheeswaran Koil Sivasamy family lineage.">
+  <link rel="icon" type="image/png" href="https://iswariyasivasamy.com/wp-content/themes/sivasamy/images/original.png">
+  
+  <!-- Core Design Styles -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Meta Pixel Base Code (with placeholder) -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // Replace YOUR_PIXEL_ID with your actual Meta Pixel ID
+    fbq('track', 'PageView');
+    fbq('track', 'InitiateCheckout'); // Fired instantly on checkout/form entry
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+  </noscript>
+  
+  <style>
+    /* Standalone booking page special layouts */
+    .booking-page-body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-parchment);
+    }
+    
+    .booking-header {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(99, 15, 31, 0.08);
+      background-color: var(--color-white);
+    }
+    
+    .booking-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .booking-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    
+    .booking-logo img {
+      height: 45px;
+    }
+    
+    .booking-logo span {
+      font-family: var(--font-heading);
+      color: var(--color-burgundy);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn-back {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(99, 15, 31, 0.2);
+      color: var(--color-burgundy);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+    }
+    
+    .btn-back:hover {
+      background-color: rgba(99, 15, 31, 0.04);
+      border-color: var(--color-burgundy);
+    }
+    
+    .booking-main {
+      flex: 1;
+      padding: 60px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .booking-card {
+      background-color: var(--color-white);
+      border-radius: 16px;
+      border: 1px solid rgba(197, 155, 39, 0.2);
+      box-shadow: var(--shadow-premium);
+      padding: 40px;
+      max-width: 650px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .booking-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--color-burgundy), var(--color-gold));
+    }
+    
+    .booking-intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .booking-intro h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    
+    .booking-intro p {
+      color: #6C5F5B;
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    
+    /* Interactive Visual Aid card style */
+    .thumb-guidance-box {
+      background-color: rgba(197, 155, 39, 0.05);
+      border: 1px dashed rgba(197, 155, 39, 0.3);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition-smooth);
+    }
+    
+    .thumb-icon-svg {
+      width: 45px;
+      height: 45px;
+      fill: var(--color-gold);
+      flex-shrink: 0;
+    }
+    
+    .thumb-guidance-text h5 {
+      color: var(--color-burgundy);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    
+    .thumb-guidance-text p {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: #5A4E4B;
+    }
+    
+    .booking-pricing-banner {
+      background-color: rgba(99, 15, 31, 0.02);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      border-left: 4px solid var(--color-gold);
+    }
+    
+    .booking-pricing-banner h6 {
+      color: var(--color-burgundy);
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    
+    .booking-pricing-banner p {
+      font-size: 0.8rem;
+      color: #6C5F5B;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 576px) {
+      .booking-main {
+        padding: 30px 15px;
+      }
+      .booking-card {
+        padding: 30px 20px;
+      }
+      .booking-intro h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body class="booking-page-body">
+
+
+
+  <!-- Main Booking Workspace -->
+  <main class="booking-main">
+    <div class="palm-watermark"></div>
+    <div class="booking-card">
+      <div class="booking-intro">
+        <h2>Request Your Nadi Session</h2>
+        <p>Complete the pre-qualification search profile below to initiate your ancestral palm leaf matching search.</p>
+      </div>
+
+
+      <!-- Booking Form -->
+      <form id="multiPageBookingForm">
+        <div class="form-group">
+          <label for="clientName">Your Full Name</label>
+          <input type="text" id="clientName" class="form-control" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="clientLanguage">Preferred Language for Reading</label>
+          <select id="clientLanguage" class="form-control" required>
+            <option value="">-- Select Language --</option>
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Telugu">Telugu</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Your Gender (For Thumbprint criteria)</label>
+          <div class="form-radio-group">
+            <div class="form-radio-card" id="genderMaleCard">
+              <input type="radio" id="genderMale" name="clientGender" value="Male" required>
+              <label for="genderMale" style="margin-bottom: 0; cursor: pointer;">Male (Right Thumb)</label>
+            </div>
+            <div class="form-radio-card" id="genderFemaleCard">
+              <input type="radio" id="genderFemale" name="clientGender" value="Female" required>
+              <label for="genderFemale" style="margin-bottom: 0; cursor: pointer;">Female (Left Thumb)</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Visual Thumbprint Guidance Card (Toggles Dynamically) -->
+        <div class="thumb-guidance-box" id="thumbGuidanceBox" style="display: none;">
+          <svg class="thumb-icon-svg" viewBox="0 0 24 24" id="thumbIcon">
+            <path d="M12,2C11.97,2 9.5,2 8,5.5C7.26,7.24 7,9.6 7,11.5C7,14.5 9,16.5 12,16.5C15,16.5 17,14.5 17,11.5C17,9.6 16.74,7.24 16,5.5C14.5,2 12.03,2 12,2M12,4C13,4 14.07,5.55 14.86,7.74C15.42,9.31 15.5,10.97 15,11.5C14.5,12 13.5,12.5 12,12.5C10.5,12.5 9.5,12 9,11.5C8.5,10.97 8.58,9.31 9.14,7.74C9.93,5.55 11,4 12,4M12,18C10,18 8,19 8,20.5C8,21.3 9.8,22 12,22C14.2,22 16,21.3 16,20.5C16,19 14,18 12,18Z"/>
+          </svg>
+          <div class="thumb-guidance-text">
+            <h5 id="thumbTitle">Right Thumbprint Required</h5>
+            <p id="thumbDesc">As a male seeker, your search requires a high-resolution, clear photo of your <strong>Right Thumbprint</strong> to proceed with leaf match indexing.</p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="clientDate">Preferred Reading Date</label>
+          <input type="date" id="clientDate" class="form-control" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label for="clientMessage">Main Life Question (Optional)</label>
+          <textarea id="clientMessage" class="form-control" rows="3" placeholder="e.g., career growth, marriage delays..."></textarea>
+        </div>
+        
+        <button type="submit" class="btn-primary" style="width: 100%; border-radius: 8px; font-size: 1.1rem; padding: 14px; display: inline-flex; justify-content: center; align-items: center; cursor: pointer;">
+          Proceed to Confirmation →
+        </button>
+        
+        <p style="font-size: 0.75rem; text-align: center; color: #6C5F5B; margin-top: 14px;">
+          🔒 Safe & Secure. Clicking this validates your Nadi profile, triggers your Meta event, and opens the routing stage.
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Local interactive layout helpers (gender highlights and thumbprint box toggle)
+    const maleCard = document.getElementById('genderMaleCard');
+    const femaleCard = document.getElementById('genderFemaleCard');
+    const maleRadio = document.getElementById('genderMale');
+    const femaleRadio = document.getElementById('genderFemale');
+    const thumbBox = document.getElementById('thumbGuidanceBox');
+    const thumbTitle = document.getElementById('thumbTitle');
+    const thumbDesc = document.getElementById('thumbDesc');
+
+    function updateGenderHighlight() {
+      if (maleRadio.checked) {
+        maleCard.classList.add('active');
+        femaleCard.classList.remove('active');
+        
+        thumbBox.style.display = 'flex';
+        thumbTitle.textContent = "Right Thumbprint Required";
+        thumbDesc.innerHTML = "As a male seeker, your search indexes actual palm leaf bundles using your <strong>Right Thumbprint</strong>.";
+      } else if (femaleRadio.checked) {
+        femaleCard.classList.add('active');
+        maleCard.classList.remove('active');
+        
+        thumbBox.style.display = 'flex';
+        thumbTitle.textContent = "Left Thumbprint Required";
+        thumbDesc.innerHTML = "As a female seeker, your search indexes actual palm leaf bundles using your <strong>Left Thumbprint</strong>.";
+      }
+    }
+
+    maleRadio.addEventListener('change', updateGenderHighlight);
+    femaleRadio.addEventListener('change', updateGenderHighlight);
+    
+    // Standard trigger on card click
+    maleCard.addEventListener('click', () => {
+      maleRadio.checked = true;
+      updateGenderHighlight();
+    });
+    
+    femaleCard.addEventListener('click', () => {
+      femaleRadio.checked = true;
+      updateGenderHighlight();
+    });
+
+    // Form redirection hook
+    document.getElementById('multiPageBookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const clientName = document.getElementById('clientName').value;
+      const clientLanguage = document.getElementById('clientLanguage').value;
+      const clientGender = document.querySelector('input[name="clientGender"]:checked').value;
+      const clientDate = document.getElementById('clientDate').value;
+      const clientMessage = document.getElementById('clientMessage').value;
+      
+      // Save data securely in localStorage to carry it over to thankyou.html
+      const bookingData = {
+        name: clientName,
+        language: clientLanguage,
+        gender: clientGender,
+        date: clientDate,
+        message: clientMessage
+      };
+      
+      localStorage.setItem('nadiBookingData', JSON.stringify(bookingData));
+      
+      // Redirect to thankyou.html
+      window.location.href = 'thankyou.html';
+    });
+  </script>
+</body>
+</html>

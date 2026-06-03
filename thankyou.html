@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Request Received | Sri Agasthya Siva Nadi</title>
+  
+  <!-- SEO & Favicon -->
+  <meta name="description" content="Thank you for booking your Nadi session. Proceed to connect on WhatsApp to match your palm leaf scroll.">
+  <link rel="icon" type="image/png" href="https://iswariyasivasamy.com/wp-content/themes/sivasamy/images/original.png">
+  
+  <!-- Core Design Styles -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Meta Pixel Base Code (with placeholder) -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // Replace YOUR_PIXEL_ID with your actual Meta Pixel ID
+    fbq('track', 'PageView');
+    fbq('track', 'Lead'); // Fired instantly on load to track conversions
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+  </noscript>
+  
+  <style>
+    /* Standalone thank you page special layouts */
+    .thankyou-page-body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-parchment);
+    }
+    
+    .thankyou-header {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(99, 15, 31, 0.08);
+      background-color: var(--color-white);
+    }
+    
+    .thankyou-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .thankyou-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    
+    .thankyou-logo img {
+      height: 45px;
+    }
+    
+    .thankyou-main {
+      flex: 1;
+      padding: 60px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .thankyou-card {
+      background-color: var(--color-white);
+      border-radius: 16px;
+      border: 1px solid rgba(197, 155, 39, 0.2);
+      box-shadow: var(--shadow-premium);
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .thankyou-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--color-burgundy), var(--color-gold));
+    }
+    
+    .success-icon-wrapper {
+      width: 70px;
+      height: 70px;
+      background-color: rgba(197, 155, 39, 0.1);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    
+    .success-icon-svg {
+      width: 35px;
+      height: 35px;
+      fill: var(--color-gold);
+    }
+    
+    .thankyou-card h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--color-burgundy);
+    }
+    
+    .thankyou-card p.success-intro {
+      color: #6C5F5B;
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+    
+    .summary-box {
+      background-color: rgba(99, 15, 31, 0.02);
+      border: 1px solid rgba(99, 15, 31, 0.06);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    
+    .summary-box h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--color-burgundy);
+      border-bottom: 1px solid rgba(99, 15, 31, 0.08);
+      padding-bottom: 8px;
+    }
+    
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    
+    .summary-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .summary-label {
+      color: #8C7F7B;
+      font-weight: 500;
+    }
+    
+    .summary-value {
+      color: var(--color-charcoal);
+      font-weight: 700;
+    }
+    
+    /* Countdown timer styles */
+    .countdown-container {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .countdown-text {
+      font-size: 0.9rem;
+      color: var(--color-copper);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .countdown-dots {
+      display: flex;
+      gap: 4px;
+    }
+    
+    .countdown-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-copper);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: count-pulse 1s infinite alternate;
+    }
+    
+    .countdown-dot:nth-child(2) { animation-delay: 0.2s; }
+    .countdown-dot:nth-child(3) { animation-delay: 0.4s; }
+    
+    @keyframes count-pulse {
+      0% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+    
+    .btn-whatsapp-direct {
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1.15rem;
+      padding: 16px 24px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(200, 157, 43, 0.25);
+    }
+    
+    @media (max-width: 576px) {
+      .thankyou-main {
+        padding: 30px 15px;
+      }
+      .thankyou-card {
+        padding: 30px 20px;
+      }
+      .thankyou-card h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body class="thankyou-page-body">
+
+
+
+  <!-- Main Thank You Workspace -->
+  <main class="thankyou-main">
+    <div class="palm-watermark"></div>
+    <div class="thankyou-card">
+      <div class="success-icon-wrapper">
+        <svg class="success-icon-svg" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      </div>
+      
+      <h2>Search Registered Successfully!</h2>
+      <p class="success-intro">Namaste. Your matching profile has been saved in our ancestral record list. To complete your session booking, please match your thumb impression on WhatsApp.</p>
+      
+      <!-- Selections Summary Box -->
+      <div class="summary-box">
+        <h4>Leaf Matching Index Profile</h4>
+        <div class="summary-item">
+          <span class="summary-label">Name:</span>
+          <span class="summary-value" id="dispName">N/A</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Language:</span>
+          <span class="summary-value" id="dispLanguage">N/A</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Thumb impression:</span>
+          <span class="summary-value" id="dispThumb">N/A</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Requested Date:</span>
+          <span class="summary-value" id="dispDate">N/A</span>
+        </div>
+      </div>
+      
+      <p style="font-size: 0.95rem; text-align: center; color: #6C5F5B; margin-top: 10px; line-height: 1.6;">
+        📜 Our team will reach out to you shortly to begin your palm leaf matching search.
+      </p>
+    </div>
+  </main>
+
+  <script>
+    // Extract metadata from localStorage
+    const dataStr = localStorage.getItem('nadiBookingData');
+    
+    let bookingData = {
+      name: "Seeker",
+      language: "English",
+      gender: "Male",
+      date: "Pending Date",
+      message: ""
+    };
+    
+    if (dataStr) {
+      try {
+        bookingData = JSON.parse(dataStr);
+      } catch(e) {
+        console.error("Error parsing booking data:", e);
+      }
+    }
+    
+    // Display summary data
+    document.getElementById('dispName').textContent = bookingData.name;
+    document.getElementById('dispLanguage').textContent = bookingData.language;
+    document.getElementById('dispThumb').textContent = bookingData.gender === "Male" ? "Male (Right Thumb)" : "Female (Left Thumb)";
+    
+    // Format date beautifully (e.g. DD-MM-YYYY)
+    if (bookingData.date) {
+      const parts = bookingData.date.split('-');
+      if (parts.length === 3) {
+        document.getElementById('dispDate').textContent = `${parts[2]}-${parts[1]}-${parts[0]}`;
+      } else {
+        document.getElementById('dispDate').textContent = bookingData.date;
+      }
+    }
+
+    // No redirect — page stays static after showing booking summary
+  </script>
+</body>
+</html>
