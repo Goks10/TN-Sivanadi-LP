@@ -231,6 +231,11 @@
         </div>
         
         <div class="form-group">
+          <label for="clientPhone">WhatsApp Number</label>
+          <input type="tel" id="clientPhone" class="form-control" placeholder="e.g. +91 98765 43210" required>
+        </div>
+
+        <div class="form-group">
           <label for="clientLanguage">Preferred Language for Reading</label>
           <select id="clientLanguage" class="form-control" required>
             <option value="">-- Select Language --</option>
@@ -330,13 +335,14 @@
     });
 
     // ⬇ Paste your Google Apps Script Web App URL here
-    const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxAvGxK0Z9jyktiHQUjrgFq-LQoRbEM7aL7uneLeteOj6YLSVVAyImVUKnAtu9PTQYB/exec';
+    const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxk0Zv0rpE0Dli3uKlpHjtOQ48Xf2Ql69m-A541kPQLSB3zUOXayTbH7TIgqeh7o9mH/exec';
 
     document.getElementById('multiPageBookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const bookingData = {
         name:     document.getElementById('clientName').value,
+        phone:    document.getElementById('clientPhone').value,
         language: document.getElementById('clientLanguage').value,
         gender:   document.querySelector('input[name="clientGender"]:checked').value,
         date:     document.getElementById('clientDate').value,
