@@ -5,3 +5,5 @@
 brief.md
 lp_changing_plan.docx
 .vercel
+.env.local
+.env*.local
