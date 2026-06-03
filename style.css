@@ -245,6 +245,19 @@ section {
   color: rgba(255,255,255,0.8);
 }
 
+@media (max-width: 768px) {
+  .cta-block {
+    padding: 20px 20px;
+  }
+  .cta-block-main {
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+  .cta-block-sub {
+    font-size: 0.85rem;
+  }
+}
+
 .btn-primary:active {
   transform: translateY(-1px);
 }
