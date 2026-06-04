@@ -278,7 +278,7 @@
         </div>
 
         <div class="form-group" style="margin-bottom: 24px;">
-          <label style="display:block; margin-bottom: 10px;">What made you interested in Nadi Astrology?</label>
+          <label style="display:block; margin-bottom: 10px;">What made you interested in Nadi Astrology? <span style="color:#c0392b;">*</span></label>
           <div style="display: flex; flex-wrap: wrap; gap: 10px;">
             <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
               <input type="checkbox" name="nadiInterest" value="Curiosity"> Curiosity
@@ -293,16 +293,17 @@
               <input type="checkbox" name="nadiInterest" value="Spiritual interest"> Spiritual interest
             </label>
           </div>
+          <p id="nadiInterestError" style="display:none; color:#c0392b; font-size:0.82rem; margin-top:6px;">Please select at least one option.</p>
         </div>
 
         <div class="form-group" style="margin-bottom: 24px;">
-          <label style="display:block; margin-bottom: 10px;">Have you watched the Nadi Astrology Explanation video Fully?</label>
+          <label style="display:block; margin-bottom: 10px;">Have you watched the Nadi Astrology Explanation video Fully? <span style="color:#c0392b;">*</span></label>
           <div style="display: flex; gap: 24px;">
             <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
-              <input type="radio" name="watchedVideo" value="Yes"> Yes
+              <input type="radio" name="watchedVideo" value="Yes" required> Yes
             </label>
             <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
-              <input type="radio" name="watchedVideo" value="No"> No
+              <input type="radio" name="watchedVideo" value="No" required> No
             </label>
           </div>
         </div>
@@ -370,6 +371,15 @@
 
     document.getElementById('multiPageBookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
+
+      var checkedInterests = document.querySelectorAll('input[name="nadiInterest"]:checked');
+      var interestError = document.getElementById('nadiInterestError');
+      if (checkedInterests.length === 0) {
+        interestError.style.display = 'block';
+        interestError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      interestError.style.display = 'none';
 
       if (!_addToCartFired) {
         _addToCartFired = true;
