@@ -243,6 +243,7 @@
             <option value="Hindi">Hindi</option>
             <option value="Tamil">Tamil</option>
             <option value="Telugu">Telugu</option>
+            <option value="Kannada">Kannada</option>
           </select>
         </div>
 
@@ -277,8 +278,33 @@
         </div>
 
         <div class="form-group" style="margin-bottom: 24px;">
-          <label for="clientMessage">Main Life Question (Optional)</label>
-          <textarea id="clientMessage" class="form-control" rows="3" placeholder="e.g., career growth, marriage delays..."></textarea>
+          <label style="display:block; margin-bottom: 10px;">What made you interested in Nadi Astrology?</label>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+              <input type="checkbox" name="nadiInterest" value="Curiosity"> Curiosity
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+              <input type="checkbox" name="nadiInterest" value="Life Confusion"> Life Confusion
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+              <input type="checkbox" name="nadiInterest" value="Recommendation"> Recommendation
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+              <input type="checkbox" name="nadiInterest" value="Spiritual interest"> Spiritual interest
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label style="display:block; margin-bottom: 10px;">Have you watched the Nadi Astrology Explanation video Fully?</label>
+          <div style="display: flex; gap: 24px;">
+            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+              <input type="radio" name="watchedVideo" value="Yes"> Yes
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer;">
+              <input type="radio" name="watchedVideo" value="No"> No
+            </label>
+          </div>
         </div>
         
         <button type="submit" class="btn-primary" style="width: 100%; border-radius: 8px; font-size: 1.1rem; padding: 14px; display: inline-flex; justify-content: center; align-items: center; cursor: pointer;">
@@ -357,8 +383,9 @@
         phone:    document.getElementById('clientPhone').value,
         language: document.getElementById('clientLanguage').value,
         gender:   document.querySelector('input[name="clientGender"]:checked').value,
-        date:     document.getElementById('clientDate').value,
-        message:  document.getElementById('clientMessage').value
+        date:         document.getElementById('clientDate').value,
+        nadiInterest: Array.from(document.querySelectorAll('input[name="nadiInterest"]:checked')).map(function(el){ return el.value; }).join(', '),
+        watchedVideo: (document.querySelector('input[name="watchedVideo"]:checked') || {}).value || ''
       };
 
       localStorage.setItem('nadiBookingData', JSON.stringify(bookingData));
