@@ -236,6 +236,11 @@
         </div>
 
         <div class="form-group">
+          <label for="clientAge">Age</label>
+          <input type="number" id="clientAge" class="form-control" placeholder="Enter your age" min="1" max="120" required>
+        </div>
+
+        <div class="form-group">
           <label for="clientLanguage">Preferred Language for Reading</label>
           <select id="clientLanguage" class="form-control" required>
             <option value="">-- Select Language --</option>
@@ -391,6 +396,7 @@
       const bookingData = {
         name:     document.getElementById('clientName').value,
         phone:    document.getElementById('clientPhone').value,
+        age:      document.getElementById('clientAge').value,
         language: document.getElementById('clientLanguage').value,
         gender:   document.querySelector('input[name="clientGender"]:checked').value,
         date:         document.getElementById('clientDate').value,
